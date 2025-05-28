@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulación de Dispersión de Partículas Alfa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Simulación de Dispersión de Partículas Alfa</h1>
+
+  <form class="controls" onsubmit="return false;">
+    <label for="velocidad">Velocidad:
+      <input type="range" id="velocidad" min="1" max="10" value="3" />
+    </label>
+
+    <label for="cantidad">Número de partículas:
+      <input type="number" id="cantidad" value="20" min="1" max="100" />
+    </label>
+
+    <label for="tamanoNucleo">Tamaño del núcleo:
+      <input type="range" id="tamanoNucleo" min="10" max="100" value="50" />
+    </label>
+
+    <label for="cargaNucleo">Carga del núcleo:
+      <input type="range" id="cargaNucleo" min="100" max="5000" step="100" value="1000" />
+    </label>
+
+    <div class="botones-fila">
+      <button type="button" onclick="iniciarSimulacion()">Iniciar</button>
+      <button type="button" onclick="reiniciarSimulacion()">Reiniciar</button>
+      <button type="button" onclick="togglePausa()">Pausar</button>
+      <button type="button" id="btnExplicacion">¿Cómo funciona?</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="modalExplicacion" class="modal">
+      <div class="modal-contenido">
+        <span class="cerrar" id="cerrarModal">&times;</span>
+        <h2>Explicación del Simulador</h2>
+        <p>
+          Este simulador muestra la dispersión de partículas alfa al acercarse a un núcleo cargado positivamente. 
+          Puedes controlar la velocidad y cantidad de partículas, así como el tamaño y la carga del núcleo.
+          La simulación calcula el ángulo de desviación de cada partícula al interactuar con el núcleo y muestra un histograma con esos ángulos al finalizar.
+        </p>
+      </div>
+    </div>
+
+  </form>
+
+  <canvas id="simulador" width="800" height="600"></canvas>
+
+  <h2>Histograma de ángulos de desviación</h2>
+  <canvas id="histograma" width="800" height="300"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
